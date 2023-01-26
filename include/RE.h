@@ -10,6 +10,7 @@ private:
     std::unordered_set<char> letter_table;
     std::vector<Node> NFA;
     std::vector<Node_D> DFA;
+    std::vector<Node_D> min_DFA;
 
     void insert_edge(Node &n, char c, int index);
     int find_next_matched_RP(std::vector<Token> &tokens, int lp, int end);
@@ -23,11 +24,14 @@ private:
     int find_node(std::unordered_set<int> &s);
     int epsilon_closure(std::unordered_set<int> &s, std::list<int> &handle_list);
     void subset_construct(int NFA_start, int NFA_end);
+    void minimumize_DFA();
     void print_DFA();
+    void print_min_DFA();
 
 public:
     Regex(std::string _re);
     bool match(std::string str);
+    bool match_with_originalDFA(std::string str);
 };
 
 #endif

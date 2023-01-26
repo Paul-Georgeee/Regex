@@ -16,6 +16,7 @@ struct Node_D{
         index = _index;
         subset = _set;
     }
+
 };
 
 #endif
